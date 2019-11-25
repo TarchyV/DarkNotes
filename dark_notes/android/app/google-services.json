@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "1081888995952",
+    "firebase_url": "https://darknotes-54f71.firebaseio.com",
+    "project_id": "darknotes-54f71",
+    "storage_bucket": "darknotes-54f71.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1081888995952:android:fec89910a4f73d8335d2b5",
+        "android_client_info": {
+          "package_name": "com.valleeapps.darknotes"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1081888995952-7onchtnn1dhkqkp5gev6rqltd1bupgmu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDwvDwnbIsASB9Napw4AEgdau4kXfPtBt4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1081888995952-7onchtnn1dhkqkp5gev6rqltd1bupgmu.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
