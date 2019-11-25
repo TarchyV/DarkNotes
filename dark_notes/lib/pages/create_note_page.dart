@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dark_notes/services/authentication.dart';
 import 'package:flutter/material.dart';
 import 'package:dark_notes/modules/list_note.dart';
@@ -21,6 +22,8 @@ class _CreateNotePage extends State<CreateNotePage>{
    NotusDocument doc = new NotusDocument();
  ZefyrController _controller;
  FocusNode _focusNode = new FocusNode();
+ final databaseReference = Firestore.instance;
+  String title = ' ';
  @override
   void initState() {
 
@@ -34,6 +37,19 @@ class _CreateNotePage extends State<CreateNotePage>{
     print(_controller.document);
 
   }
+
+   void _saveNote() async {
+await databaseReference.collection('Users')
+.document(widget.userId)
+.collection('Notes')
+.document(title)
+.setData({
+ title : _controller.document.toString()
+});
+Navigator.pop(context);
+print('ive done it! pt 1');
+  }
+
   @override
   Widget build(BuildContext context) {
     final theme = ZefyrThemeData(
@@ -59,7 +75,14 @@ class _CreateNotePage extends State<CreateNotePage>{
       TextField(
         cursorColor: Colors.white54,
         style: TextStyle(fontSize: 28, color: Colors.white54),
-        decoration: InputDecoration(hintText: 'Label', hintStyle: TextStyle(color: Colors.white24, fontSize: 28,),border: InputBorder.none),),
+        decoration: InputDecoration(hintText: 'Label', hintStyle: TextStyle(color: Colors.white24, fontSize: 28,),border: InputBorder.none),
+        onChanged: (text){
+          setState(() {
+            title = text;
+          });
+        },
+        ),
+      
       Container(decoration: new BoxDecoration(border: Border(top: BorderSide(color: Colors.white24, width: 3))),
          child: Column(
            children: <Widget>[
@@ -74,8 +97,7 @@ class _CreateNotePage extends State<CreateNotePage>{
             FlatButton(
               color: Colors.white10,
               onPressed: (){
-                //Hello my name is tom i am an awesome person hahahaha i am so freaking cool i will have the best onpressed method there
-                //anyone has ever seen in their life.
+                _saveNote();
               },
               child: Text('Save Note', style: TextStyle(color: Colors.white38),),
             )
