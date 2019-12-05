@@ -1,5 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:dark_notes/pages/create_note_page.dart';
+import 'package:dark_notes/pages/edit_note_page.dart';
 import 'package:dark_notes/services/authentication.dart';
 import 'package:flutter/material.dart';
 import 'package:dark_notes/modules/list_note.dart';
@@ -51,8 +51,7 @@ void getNotes(){
 
  @override
   Widget build(BuildContext context) {
-    List<StatefulWidget> noteList = List.generate(noteCount, (int i) => ListNote(titles[i]));
-    // TODO: implement build
+    List<StatefulWidget> noteList = List.generate(noteCount, (int i) => ListNote(titles[i], widget.userId));
     return Scaffold(
       body: Container(
         width: MediaQuery.of(context).size.width,
@@ -78,7 +77,7 @@ void getNotes(){
         onPressed: (){
             Navigator.push(
               context, 
-              MaterialPageRoute(builder: (context) => CreateNotePage(widget.userId)));
+              MaterialPageRoute(builder: (context) => EditNotePage(widget.userId, titles, true)));
         },
         child: Icon(
           Icons.add
