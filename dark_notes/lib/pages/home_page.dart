@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:dark_notes/pages/edit_note_page.dart';
+import 'package:dark_notes/pages/note/edit_note_page.dart';
+import 'package:dark_notes/pages/note/note_home_page.dart';
 import 'package:dark_notes/services/authentication.dart';
 import 'package:flutter/material.dart';
 import 'package:dark_notes/modules/list_note.dart';
@@ -19,69 +20,59 @@ HomePage({Key key, this.userId,this.auth, this.onSignedOut})
 }
 
 class _HomePage extends State<HomePage>{
-int noteCount = 0;
-String title = "no title";
- final databaseReference = Firestore.instance;
-@override
-  void initState() {
-    getNotes();
-    super.initState();
+
+ @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Container(
+        height: MediaQuery.of(context).size.height,
+        color: Colors.black,
+      child: Column(
+        children: <Widget>[
+          Stack(
+            children: <Widget>[
+              Positioned(
+             //   top: 11,
+            child: Container(
+            height: 600,
+            
+            width: MediaQuery.of(context).size.width,
+            decoration: new BoxDecoration(
+              border: Border.all(color: Colors.white, width: 2),
+              shape: BoxShape.circle,
+            ),
+          ),
+              )
+            
+            ],
+          )
+          
+        ],
+       
+      )
+      ),
+    );
   }
-
-List<String> titles = new List();
-
-void getNotes(){
-   databaseReference.collection('Users').document(widget.userId).collection('Notes').getDocuments(
-
-  ).then((QuerySnapshot snapshot) {
-    snapshot.documents.forEach((f){
-          if(!titles.contains(f.documentID.toString())){
-            setState(() {
-             titles.add(f.documentID.toString());
-             noteCount = noteCount + 1;
-            });
-          }
-    });
-  });
-
-
 
 
 }
 
- @override
+class PageHolder extends StatefulWidget{
+  @override
+  State<StatefulWidget> createState() => _PageHolder();
+
+
+}
+
+class _PageHolder extends State<PageHolder>{
+  @override
   Widget build(BuildContext context) {
-    List<StatefulWidget> noteList = List.generate(noteCount, (int i) => ListNote(titles[i], widget.userId));
     return Scaffold(
       body: Container(
-        width: MediaQuery.of(context).size.width,
-        height: MediaQuery.of(context).size.height,
-        decoration: new BoxDecoration(color: Colors.black),
-        child: Column(
+        child: PageView(
           children: <Widget>[
-            Padding(
-              padding: const EdgeInsets.symmetric(vertical: 40),
-              child: Text('DarkNotes', style: TextStyle(color: Colors.grey, fontSize: 18),),
-            ),
-            Container(
-              height: MediaQuery.of(context).size.height - 120,
-              child: ListView(
-                children: noteList
-              ),
-            )
-          ],
-        ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        backgroundColor: Colors.white24,
-        onPressed: (){
-            Navigator.push(
-              context, 
-              MaterialPageRoute(builder: (context) => EditNotePage(widget.userId, titles, true)));
-        },
-        child: Icon(
-          Icons.add
-        ),
+
+        ],),
       ),
     );
   }

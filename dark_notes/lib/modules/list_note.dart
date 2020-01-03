@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:dark_notes/pages/view_note_page.dart';
+import 'package:dark_notes/pages/note/view_note_page.dart';
 class ListNote extends StatefulWidget{
   final String title;
   final String userId;
