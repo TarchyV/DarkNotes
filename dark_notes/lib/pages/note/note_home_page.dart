@@ -59,12 +59,8 @@ void getNotes(){
         decoration: new BoxDecoration(color: Colors.black),
         child: Column(
           children: <Widget>[
-            Padding(
-              padding: const EdgeInsets.symmetric(vertical: 40),
-              child: Text('DarkNotes', style: TextStyle(color: Colors.grey, fontSize: 18),),
-            ),
             Container(
-              height: MediaQuery.of(context).size.height - 120,
+              height: MediaQuery.of(context).size.height - 210,
               child: ListView(
                 children: noteList
               ),
