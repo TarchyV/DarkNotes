@@ -21,6 +21,7 @@ dependencies:
     sdk: flutter
   firebase_auth: ^0.15.0
   cloud_firestore: ^0.12.10
+  swipedetector: ^1.2.0  
   zefyr:
       git:
         url: git://github.com/memspace/zefyr.git
@@ -48,6 +49,11 @@ flutter:
 
   assets:
     - assets/Logo.png
+    - assets/MoonLogo.png
+    - assets/NoteImg.png
+    - assets/ToDoImg.png
+    - assets/CalendarImg.png
+    - assets/DrawImg.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
