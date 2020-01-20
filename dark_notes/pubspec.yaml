@@ -21,7 +21,9 @@ dependencies:
     sdk: flutter
   firebase_auth: ^0.15.0
   cloud_firestore: ^0.12.10
-  swipedetector: ^1.2.0  
+  infinity_page_view: ^1.0.0
+  weather: ^0.9.5
+  flutter_weather_icons: ^1.0.2
   zefyr:
       git:
         url: git://github.com/memspace/zefyr.git
@@ -54,7 +56,10 @@ flutter:
     - assets/ToDoImg.png
     - assets/CalendarImg.png
     - assets/DrawImg.png
-
+  fonts:
+    - family: Walkway
+      fonts:
+        - asset: fonts/Walkway.ttf
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
 
