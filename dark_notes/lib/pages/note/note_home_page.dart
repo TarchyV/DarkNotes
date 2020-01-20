@@ -53,6 +53,7 @@ void getNotes(){
   Widget build(BuildContext context) {
     List<StatefulWidget> noteList = List.generate(noteCount, (int i) => ListNote(titles[i], widget.userId));
     return Scaffold(
+      backgroundColor: Colors.black,
       body: Container(
         width: MediaQuery.of(context).size.width,
         height: MediaQuery.of(context).size.height,
@@ -69,7 +70,8 @@ void getNotes(){
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        backgroundColor: Colors.white24,
+        backgroundColor: Colors.black,
+        shape:RoundedRectangleBorder(side: BorderSide(color: Colors.white38, width: 2.0), borderRadius: BorderRadius.circular(36)),
         onPressed: (){
             Navigator.push(
               context, 

@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: ThemeData(fontFamily: 'Montserrat'),
+      theme: ThemeData(fontFamily: 'Walkway', backgroundColor: Colors.black, textTheme: TextTheme(body1: TextStyle(color: Colors.white38))),
       home: new RootPage(auth: new Auth()),
       builder: (context, child){
         return MediaQuery(

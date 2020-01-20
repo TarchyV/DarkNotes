@@ -1,9 +1,11 @@
 import 'package:dark_notes/pages/note/note_home_page.dart';
 import 'package:dark_notes/services/authentication.dart';
 import 'package:flutter/material.dart';
-import 'package:dark_notes/pages/to-do/to-do_home_page.dart';
-import 'package:swipedetector/swipedetector.dart';
+import 'package:infinity_page_view/infinity_page_view.dart';
 import 'package:zefyr/zefyr.dart';
+import 'package:dark_notes/pages/eclipse_home.dart';
+import 'package:dark_notes/pages/todo/todo_home.dart';
+import 'note/note_home_page.dart';
 
 class HomePage extends StatefulWidget
 {
@@ -29,7 +31,7 @@ class _HomePage extends State<HomePage>{
 
 
 
-PageController _p = new PageController();
+InfinityPageController _p = new InfinityPageController(initialPage: 2);
 
 List<double> pos1 = [50.0,330.0,30.0];
 List<double> pos4 = [60.0,75.0,50.0];
@@ -47,8 +49,20 @@ List<double> pos5 = [50.0,20.0,30.0];
 int temp = 2;
 
 void _getSwipeDirection(int page){
-
-
+print('$temp & $page');
+if(temp == 4 && page == 0){
+  print(' I HAPPENED');
+  pageTransition(1);
+  setState(() {
+    temp = page;
+  });
+}else{
+if(temp == 0 && page == 4){
+  pageTransition(0);
+  setState(() {
+    temp = page;
+  });
+}else{
 if(temp > page){
   print('swipe left');
   pageTransition(0);
@@ -64,11 +78,15 @@ if(temp < page){
     temp = page;
   });
 }
+}
+
+}
+
 
 
 }
 
-//0 = left : 1 = right
+//0 = left | 1 = right\\
 Future<void> pageTransition(int swipe) async {
 List<double> tl1 = pos1;List<double> tl2 = pos2;List<double> tl3 = pos3;
 List<double> tl4 = pos4;List<double> tl5 = pos5;
@@ -141,30 +159,44 @@ setState(() {
 ]),
             Container(
             height: 500,
-            child:  PageView(
+            child:  InfinityPageView(
             controller: _p,
+            itemCount: 5,
             onPageChanged: (int x){
           _getSwipeDirection(x);
+          
             },
-            
-            children: <Widget>[
-      ToDoHome(),
-      ToDoHome(),
-      NoteHomePage(userId: widget.userId,),
-      ToDoHome(),
-      ToDoHome(),
-          ],)
-        )
-            
-            ],
+            itemBuilder: (BuildContext context, int index){
+              switch(index){
+                case 0:
+                return Container();
+                case 1:
+                return NoteHomePage(userId: widget.userId);
+                case 2:
+                return EclipseHome();
+                case 3: 
+                return ToDo();
+                case 4:
+                return Container();
+              }
+
+            },
+            )
             
             ),
-        )
+          ]
+        ),
+      )
     );
   }
 
 
 }
+
+
+
+
+
 
 Widget circle(BuildContext context, List<double> pos, int cv){
    return AnimatedPositioned(
@@ -179,7 +211,7 @@ Widget circle(BuildContext context, List<double> pos, int cv){
       height: pos[2],
       decoration: new BoxDecoration(
         color: Colors.black,
-        border: Border.all(color: Colors.white, width: 2),
+        border: Border.all(color: Colors.white38, width: 2),
         shape: BoxShape.circle,
       ),
     ), 
@@ -196,7 +228,7 @@ class CurvePainter extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
     var paint = Paint();
-    paint.color = Colors.white;
+    paint.color = Colors.white38;
     paint.style = PaintingStyle.stroke; // Change this to fill
     paint.strokeWidth = 2;
     var path = Path();
