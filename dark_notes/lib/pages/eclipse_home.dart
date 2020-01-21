@@ -26,37 +26,29 @@ class _EclipseHome extends State<EclipseHome>{
     Weather weather = await weatherStation.currentWeather();
      celsius = weather.temperature.celsius;
      fahrenheit = weather.temperature.fahrenheit;
-           print(night.hour);
-           print(TimeOfDay.now());
+            getIcon(weather);
+     return fahrenheit;
+    }
+    void getIcon(Weather weather){
      areaName = weather.areaName;
      if(fahrenheit < 30){
       if(weather.snowLastHour > 2){
-       setState(() {
          icon = 'snow';
-       });
      }else{
-     setState(() {
          icon = 'cold';
-       });
      }
      }
      if(weather.cloudiness > 4){
-       setState(() {
          icon = 'cloud';
-       });
      }
     if(weather.rainLastHour > 2){
-      setState(() {
         icon = 'rain';
-      });
     }
     if(fahrenheit > 60 && weather.cloudiness < 3){
-      setState(() {
         icon = 'sun';
-      });
     }
-     
-     return fahrenheit;
+
+
     }
   Widget weatherIcon(BuildContext context, String i){
 

@@ -2,7 +2,6 @@ import 'package:dark_notes/pages/note/note_home_page.dart';
 import 'package:dark_notes/services/authentication.dart';
 import 'package:flutter/material.dart';
 import 'package:infinity_page_view/infinity_page_view.dart';
-import 'package:zefyr/zefyr.dart';
 import 'package:dark_notes/pages/eclipse_home.dart';
 import 'package:dark_notes/pages/todo/todo_home.dart';
 import 'note/note_home_page.dart';
@@ -49,9 +48,7 @@ List<double> pos5 = [50.0,20.0,30.0];
 int temp = 2;
 
 void _getSwipeDirection(int page){
-print('$temp & $page');
 if(temp == 4 && page == 0){
-  print(' I HAPPENED');
   pageTransition(1);
   setState(() {
     temp = page;
@@ -64,7 +61,6 @@ if(temp == 0 && page == 4){
   });
 }else{
 if(temp > page){
-  print('swipe left');
   pageTransition(0);
   setState(() {
     temp = page;
@@ -72,7 +68,6 @@ if(temp > page){
 }
 
 if(temp < page){
-  print('swipe right');
   pageTransition(1);
   setState(() {
     temp = page;
@@ -175,7 +170,7 @@ setState(() {
                 case 2:
                 return EclipseHome();
                 case 3: 
-                return ToDo();
+                return ToDo(widget.userId);
                 case 4:
                 return Container();
               }

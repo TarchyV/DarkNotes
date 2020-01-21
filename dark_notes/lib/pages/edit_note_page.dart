@@ -1,10 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:dark_notes/services/authentication.dart';
 import 'package:flutter/material.dart';
-import 'package:dark_notes/modules/list_note.dart';
 import 'package:zefyr/zefyr.dart';
-import 'package:quill_delta/quill_delta.dart';
-import 'dart:async';
 import 'dart:convert';
 
 import '../main.dart';
