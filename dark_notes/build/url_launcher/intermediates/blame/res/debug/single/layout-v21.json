@@ -1,0 +1,18 @@
+[
+    {
+        "merged": "C:\\Users\\Thoma\\Desktop\\Eclipse\\dark_notes\\build\\url_launcher\\intermediates\\res\\merged\\debug\\layout-v21\\notification_action_tombstone.xml",
+        "source": "C:\\Users\\Thoma\\.gradle\\caches\\transforms-1\\files-1.1\\core-1.0.0.aar\\a00b1244022e4ccb40d42ca59a44a73f\\res\\layout-v21\\notification_action_tombstone.xml"
+    },
+    {
+        "merged": "C:\\Users\\Thoma\\Desktop\\Eclipse\\dark_notes\\build\\url_launcher\\intermediates\\res\\merged\\debug\\layout-v21\\notification_action.xml",
+        "source": "C:\\Users\\Thoma\\.gradle\\caches\\transforms-1\\files-1.1\\core-1.0.0.aar\\a00b1244022e4ccb40d42ca59a44a73f\\res\\layout-v21\\notification_action.xml"
+    },
+    {
+        "merged": "C:\\Users\\Thoma\\Desktop\\Eclipse\\dark_notes\\build\\url_launcher\\intermediates\\res\\merged\\debug\\layout-v21\\notification_template_custom_big.xml",
+        "source": "C:\\Users\\Thoma\\.gradle\\caches\\transforms-1\\files-1.1\\core-1.0.0.aar\\a00b1244022e4ccb40d42ca59a44a73f\\res\\layout-v21\\notification_template_custom_big.xml"
+    },
+    {
+        "merged": "C:\\Users\\Thoma\\Desktop\\Eclipse\\dark_notes\\build\\url_launcher\\intermediates\\res\\merged\\debug\\layout-v21\\notification_template_icon_group.xml",
+        "source": "C:\\Users\\Thoma\\.gradle\\caches\\transforms-1\\files-1.1\\core-1.0.0.aar\\a00b1244022e4ccb40d42ca59a44a73f\\res\\layout-v21\\notification_template_icon_group.xml"
+    }
+]

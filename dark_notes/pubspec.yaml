@@ -24,7 +24,7 @@ dependencies:
   infinity_page_view: ^1.0.0
   weather: ^0.9.5
   flutter_weather_icons: ^1.0.2
-  flutter_calendar_carousel: ^1.4.10
+  table_calendar: ^2.2.2
   zefyr:
       git:
         url: git://github.com/memspace/zefyr.git

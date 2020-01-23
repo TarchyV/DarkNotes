@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="default_web_client_id" translatable="false">1081888995952-7onchtnn1dhkqkp5gev6rqltd1bupgmu.apps.googleusercontent.com</string>
+    <string name="firebase_database_url" translatable="false">https://darknotes-54f71.firebaseio.com</string>
+    <string name="gcm_defaultSenderId" translatable="false">1081888995952</string>
+    <string name="google_api_key" translatable="false">AIzaSyDwvDwnbIsASB9Napw4AEgdau4kXfPtBt4</string>
+    <string name="google_app_id" translatable="false">1:1081888995952:android:fec89910a4f73d8335d2b5</string>
+    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyDwvDwnbIsASB9Napw4AEgdau4kXfPtBt4</string>
+    <string name="google_storage_bucket" translatable="false">darknotes-54f71.appspot.com</string>
+    <string name="project_id" translatable="false">darknotes-54f71</string>
+</resources>

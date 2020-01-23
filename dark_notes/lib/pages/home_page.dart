@@ -139,7 +139,7 @@ setState(() {
             CustomPaint(
             painter: CurvePainter(),
             child: Container(
-              height: 200,
+              height: 150,
               width: 800,
           ),
             ),
@@ -232,7 +232,7 @@ class CurvePainter extends CustomPainter {
 
     path.moveTo(0, size.height * 0.25);
     path.quadraticBezierTo(
-        size.width / 2, size.height / 1.5, size.width + 10, size.height * 0.25);
+        size.width / 2, size.height / 0.9, size.width + 10, size.height * 0.25);
     path.lineTo(size.width, -50);
     path.lineTo(0, 0);
 

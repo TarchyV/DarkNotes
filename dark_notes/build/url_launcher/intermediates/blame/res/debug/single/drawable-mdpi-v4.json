@@ -1,0 +1,22 @@
+[
+    {
+        "merged": "C:\\Users\\Thoma\\Desktop\\Eclipse\\dark_notes\\build\\url_launcher\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4\\notification_bg_normal.9.png",
+        "source": "C:\\Users\\Thoma\\.gradle\\caches\\transforms-1\\files-1.1\\core-1.0.0.aar\\a00b1244022e4ccb40d42ca59a44a73f\\res\\drawable-mdpi-v4\\notification_bg_normal.9.png"
+    },
+    {
+        "merged": "C:\\Users\\Thoma\\Desktop\\Eclipse\\dark_notes\\build\\url_launcher\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4\\notification_bg_low_normal.9.png",
+        "source": "C:\\Users\\Thoma\\.gradle\\caches\\transforms-1\\files-1.1\\core-1.0.0.aar\\a00b1244022e4ccb40d42ca59a44a73f\\res\\drawable-mdpi-v4\\notification_bg_low_normal.9.png"
+    },
+    {
+        "merged": "C:\\Users\\Thoma\\Desktop\\Eclipse\\dark_notes\\build\\url_launcher\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4\\notify_panel_notification_icon_bg.png",
+        "source": "C:\\Users\\Thoma\\.gradle\\caches\\transforms-1\\files-1.1\\core-1.0.0.aar\\a00b1244022e4ccb40d42ca59a44a73f\\res\\drawable-mdpi-v4\\notify_panel_notification_icon_bg.png"
+    },
+    {
+        "merged": "C:\\Users\\Thoma\\Desktop\\Eclipse\\dark_notes\\build\\url_launcher\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4\\notification_bg_low_pressed.9.png",
+        "source": "C:\\Users\\Thoma\\.gradle\\caches\\transforms-1\\files-1.1\\core-1.0.0.aar\\a00b1244022e4ccb40d42ca59a44a73f\\res\\drawable-mdpi-v4\\notification_bg_low_pressed.9.png"
+    },
+    {
+        "merged": "C:\\Users\\Thoma\\Desktop\\Eclipse\\dark_notes\\build\\url_launcher\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4\\notification_bg_normal_pressed.9.png",
+        "source": "C:\\Users\\Thoma\\.gradle\\caches\\transforms-1\\files-1.1\\core-1.0.0.aar\\a00b1244022e4ccb40d42ca59a44a73f\\res\\drawable-mdpi-v4\\notification_bg_normal_pressed.9.png"
+    }
+]
