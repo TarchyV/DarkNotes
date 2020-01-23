@@ -1,5 +1,9 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:dark_notes/pages/home_page.dart';
+
+import '../../main.dart';
+import '../home_page.dart';
 
 
 class ToDo extends StatefulWidget{
@@ -16,9 +20,9 @@ class _ToDo extends State<ToDo>{
    String toDo = ' ';
   @override
   void initState() {
-
+ _getToDo();
     super.initState();
-        _getToDo();
+       
   }
 
 
@@ -57,16 +61,20 @@ class _ToDo extends State<ToDo>{
                     color: Colors.white54,
                     onPressed: (){
                       //ADD TO DATABASE
-                     Navigator.of(context).pop();
+                      Navigator.pushReplacement(context,
+                      MaterialPageRoute(builder: (context) => MyApp(page:3)));
+                     setState(() { });
                       _saveToDo();
                     },
+             
+                      
                     child: Text('Confirm', style: TextStyle(fontSize: 16, fontFamily: 'Roboto'),),
                   ),
                     FlatButton(
                     color: Colors.white54,
                     onPressed: (){
                     Navigator.of(context).pop();
-
+                  setState(() { });
                     },
                     child: Text('Cancel', style: TextStyle(fontSize: 16, fontFamily: 'Roboto'),),
                   )
@@ -84,20 +92,20 @@ class _ToDo extends State<ToDo>{
   int todoCount = 0;
   List<String> toDoString = new List();
   List<String> documents = new List();
-Future<String> _getToDo() async {
+Future<void> _getToDo() async {
 databaseReference.collection('Users').document(widget.userId).collection('ToDos').getDocuments().then((QuerySnapshot snapshot){
 print(snapshot.documents);
 snapshot.documents.forEach((f){
 print(f.data);
 setState(() {
-  toDoString.add(f.data.toString().substring(f.data.toString().indexOf(':') + 1, f.data.toString().indexOf('}')));
+  toDoString.add(f.data.toString().substring(f.data.toString().indexOf('{') + 1, f.data.toString().indexOf(':')));
 });
 });
 });
 }
 
-Future<String> dbCheck() async{
-return databaseReference.collection('Users').document(widget.userId).collection('ToDos').getDocuments().toString();
+Future dbCheck() async{
+  return Future.delayed(Duration(milliseconds: 200), () => '1');
 }
 void _saveToDo() async {
 await databaseReference.collection('Users')
@@ -107,12 +115,13 @@ await databaseReference.collection('Users')
 .setData({
  toDo: ''
 });
+
   }
   
   
   @override
   Widget build(BuildContext context) {
-    List<StatefulWidget> toDoCard = new List.generate(toDoString.length, (int i) => ToDoCard(toDoString[i]) );
+    List<StatefulWidget> toDoCard = new List.generate(toDoString.length, (int i) => ToDoCard(toDoString[i],widget.userId) );
     return Scaffold(
       backgroundColor: Colors.black,
       body: Container(
@@ -162,21 +171,29 @@ await databaseReference.collection('Users')
 
 class ToDoCard extends StatefulWidget{
   final String toDoString;
-  ToDoCard(this.toDoString);
+  final String userId;
+  ToDoCard(this.toDoString, this.userId);
   @override
   State<StatefulWidget> createState() => _ToDoCard();
 
 }
 
 class _ToDoCard extends State<ToDoCard>{
+   final databaseReference = Firestore.instance;
 
+void removeToDo(){
+     Navigator.pushReplacement(context,
+     MaterialPageRoute(builder: (context) => MyApp(page:3)));
 
+  setState(() {
+  databaseReference.collection('Users').document(widget.userId).collection('ToDos').document(widget.toDoString).delete();
+  });
+}
 
 
 
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
     return Container(
       height: 70,
       width: MediaQuery.of(context).size.width - 50,
@@ -201,7 +218,7 @@ class _ToDoCard extends State<ToDoCard>{
           child: IconButton(
             icon: Icon(Icons.check, color: Colors.white38,),
              onPressed: () {
-
+               removeToDo();
              },
           ),
         )

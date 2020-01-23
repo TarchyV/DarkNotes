@@ -76,7 +76,7 @@ await databaseReference.collection('Users')
  title : jsonEncode(_controller.document.toJson())
 });
    Navigator.pushReplacement(context,
-            MaterialPageRoute(builder: (context) => MyApp())
+            MaterialPageRoute(builder: (context) => MyApp(page:1))
             );
 print('ive done it! pt 1');
 }else{
@@ -159,7 +159,7 @@ print('ive done it! pt 1');
          icon: Icon(Icons.arrow_back_ios),
          onPressed: (){
            Navigator.pushReplacement(context,
-            MaterialPageRoute(builder: (context) => MyApp())
+            MaterialPageRoute(builder: (context) => MyApp(page:1))
             );
          },
        ),

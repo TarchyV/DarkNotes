@@ -4,8 +4,8 @@ import 'package:dark_notes/services/authentication.dart';
 import 'package:dark_notes/pages/home_page.dart';
 
 class RootPage extends StatefulWidget {
-  RootPage({this.auth});
-
+  RootPage({this.auth, this.page});
+  final int page;
   final BaseAuth auth;
 
   @override
@@ -86,6 +86,7 @@ class _RootPageState extends State<RootPage> {
             userId: _userId,
             auth: widget.auth,
             onSignedOut: _onSignedOut,
+            initialPage: widget.page,
           );
           
         } else return _buildWaitingScreen();

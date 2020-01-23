@@ -8,13 +8,13 @@ import 'package:dark_notes/services/authentication.dart';
 void main() => runApp(MyApp(
 ));
 class MyApp extends StatelessWidget {
-  
-
+  MyApp({this.page});
+  final int page;
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: ThemeData(fontFamily: 'Walkway', backgroundColor: Colors.black, textTheme: TextTheme(body1: TextStyle(color: Colors.white38))),
-      home: new RootPage(auth: new Auth()),
+      home: new RootPage(auth: new Auth(), page: page,),
       builder: (context, child){
         return MediaQuery(
           child: child,

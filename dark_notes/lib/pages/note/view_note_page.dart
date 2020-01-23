@@ -131,7 +131,7 @@ void _getTitles(){
          icon: Icon(Icons.arrow_back_ios),
          onPressed: (){
            Navigator.pushReplacement(context,
-            MaterialPageRoute(builder: (context) => MyApp())
+            MaterialPageRoute(builder: (context) => MyApp(page:1))
             );
          },
        ),

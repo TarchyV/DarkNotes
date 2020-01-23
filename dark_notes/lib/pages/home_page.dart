@@ -5,13 +5,15 @@ import 'package:infinity_page_view/infinity_page_view.dart';
 import 'package:dark_notes/pages/eclipse_home.dart';
 import 'package:dark_notes/pages/todo/todo_home.dart';
 import 'note/note_home_page.dart';
+import 'package:dark_notes/pages/schedule/schedule_home.dart';
+
 
 class HomePage extends StatefulWidget
 {
 
-HomePage({Key key, this.userId,this.auth, this.onSignedOut})
+HomePage({Key key, this.userId,this.auth, this.onSignedOut, this.initialPage})
 : super(key:key);
-
+  final int initialPage;
   final String userId;
   final BaseAuth auth;
   final VoidCallback onSignedOut;
@@ -24,7 +26,7 @@ class _HomePage extends State<HomePage>{
 
 @override
   void initState() {
-    Future.delayed(Duration(milliseconds: 100), () =>  _p.jumpToPage(2));
+    Future.delayed(Duration(milliseconds: 100), () =>  _p.jumpToPage(widget.initialPage));
     super.initState();
   }
 
@@ -164,7 +166,7 @@ setState(() {
             itemBuilder: (BuildContext context, int index){
               switch(index){
                 case 0:
-                return Container();
+                return Schedule();
                 case 1:
                 return NoteHomePage(userId: widget.userId);
                 case 2:
